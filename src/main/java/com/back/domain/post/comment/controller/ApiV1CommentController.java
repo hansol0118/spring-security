@@ -26,8 +26,8 @@ import java.util.List;
 public class ApiV1CommentController {
 
     private final PostService postService;
-    private final PostRepository postRepository;
     private final MemberService memberService;
+    private final PostRepository postRepository;
 
     @GetMapping
     @Operation(summary="댓글 다건 조회")
