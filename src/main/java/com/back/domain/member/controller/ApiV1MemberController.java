@@ -6,7 +6,6 @@ import com.back.domain.member.service.MemberService;
 import com.back.global.exception.ServiceException;
 import com.back.global.rq.Rq;
 import com.back.global.rsData.RsData;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -77,6 +76,16 @@ public class ApiV1MemberController {
         );
     }
 
+    @DeleteMapping("/logout")
+    public RsData<Void> logout() {
+
+        rq.deleteCookie("apiKey");
+
+        return new RsData(
+                "로그아웃 되었습니다.",
+                "200-1"
+        );
+    }
 
     @GetMapping("/me")
     public MemberDto me() {

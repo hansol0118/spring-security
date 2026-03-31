@@ -63,4 +63,15 @@ public class Rq {
         );
     }
 
+
+    public void deleteCookie(String name) {
+        Cookie cookie = new Cookie(name, "");
+        cookie.setPath("/");
+        cookie.setHttpOnly(true);
+        cookie.setDomain("localhost");
+        cookie.setMaxAge(0);
+
+        response.addCookie(cookie);
+    }
+
 }
