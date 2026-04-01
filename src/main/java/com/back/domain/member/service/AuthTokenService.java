@@ -22,4 +22,8 @@ public class AuthTokenService {
                 )
         );
     }
+
+    Map<String, Object> payloadOrNull(String jwt) {
+        return Ut.jwt.payloadOrNull(jwt, secretKey);
+    }
 }
