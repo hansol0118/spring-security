@@ -34,7 +34,8 @@ public class Rq {
                 throw new ServiceException("401-2", "잘못된 형식의 인증데이터입니다.");
             }
 
-            String[] headerAuthorizationBits = authorizationHeader.split(" ", 3);            apiKey = authorizationHeader.replace("Bearer ", "");
+            String[] headerAuthorizationBits = authorizationHeader.split(" ", 3);
+            apiKey = authorizationHeader.replace("Bearer ", "");
 
             apiKey = headerAuthorizationBits[1];
             accessToken = headerAuthorizationBits.length == 3 ? headerAuthorizationBits[2] : "";
@@ -54,8 +55,8 @@ public class Rq {
 
             if (payload != null) {
                 int id = (int) payload.get("id");
-                String name = (String) payload.get("name");
-                member = new Member(id, name);
+                String username = (String) payload.get("username ");
+                member = new Member(id, username);
             }
         }
 
